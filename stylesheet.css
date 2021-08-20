@@ -1,0 +1,516 @@
+/*Jag kommer försöka beskriva vad stylingen gör för de olika selektorerna men
+jag kommer inte kommentera kod som jag redan har beskrivit vad den gör*/
+
+/*Här importerar jag tre fonter från Google*/
+@import url('https://fonts.googleapis.com/css?family=Kristi');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Libre Caslon Text');
+
+* { /*Här sätter jag margin och padding för alla element. Border-box innebär 
+    att alla ramar och padding inkluderas i elementens bredd*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { /*Här sätter jag bakgrundsfärgen för hela sidan till ghostwhite*/
+    background-color: ghostwhite;
+}
+
+/*Här kommer kod som bara berör enheter med en skärmbredd på max 600 pixlar (typ iPhone)*/
+@media only screen and (max-width: 600px) {
+    
+    nav { /*Här kommer kod som berör navigeringen.*/
+        display: flex; /*Jag använder flexbox för att skapa en responsiv layout*/
+        justify-content: center; /*Detta centrerar innehållet*/
+        overflow: hidden; /*Om innehållet flödar över så göms det*/
+        width: 100%; /*Bredden på navigeringen sätts till 100%*/
+        height: 12em; /*Här bestäms höjden relativt till den nuvarande font-storleken*/
+        background-repeat: no-repeat; /*Bakgrundsbilden ska inte upprepas utan bara visas en gång*/
+    }
+    
+    .nav_desktop {
+        display: none; /*Här gömmer jag navigeringen för stora skärmar*/
+    }
+
+    #small_index { /*Här kommer kod som styr hur bakgrunden ser ut för navigeringen på förstasidan*/
+        background-image: url("img/backgrounds/bride-1867228_1920.jpg"); /*Här är själva bilden*/
+        background-size: 100%; /*Här anger jag att bilden ska lika bred som hemsidan*/
+        background-repeat: no-repeat; /*Bilden ska inte upprepas*/
+        height: 20em; /*Navigeringens höjd för första sidan ska vara större än de andra sidorna vilket anges här*/
+    }
+    
+    #small_about {
+        background-image: url("img/backgrounds/J76A0617.jpg");
+        background-position: bottom; /*Här anger jag hur bilden ska positioneras*/
+        background-size: 100%;
+    }
+    
+    #small_wedding {
+        background-image: url("img/backgrounds/bride-1867228_1920.jpg");
+        background-size: 100%;
+        background-position: center 25%;
+    }
+    
+    #small_portrait {
+        background-image: url("img/backgrounds/8X2A2123_websize.jpg");
+        background-size: 100%;
+        background-position: center 25%;
+    }
+    
+    #small_family {
+        background-image: url("img/backgrounds/aron-920236_1280.jpg");
+        background-size: 100%;
+        background-position: center 25%;
+    }
+    
+    #small_business {
+        background-image: url("img/backgrounds/8X2A0775.jpg");
+        background-size: 100%;
+        background-position: center 80%;
+    }
+    
+    #small_contact {
+        background-image: url("img/backgrounds/8X2A2100_websize.jpg");
+        background-position: top;
+    }
+    
+    .small_logo { /*Här stylar jag logon*/
+        font-size: 15vw; /*Storleken på fonten sätts i relation till viewportens bredd*/
+        font-weight: normal; /*Här sätts vikten till normal för alla a-taggar får en bold vikt så detta overridar det*/
+        color: black; /*Färgen sätts till svart*/
+        text-align: center; /*Jag cetrerar texten*/
+        padding-right: 0.5em; /*Här bestämmer jag hur mycket utrymme det ska finnas till höger om logon*/
+        text-decoration: none; /*Här tas den markerande linjen under länken bort*/
+        font-family: Kristi, sans-serif; /*Här får logon sin font med en default-font ifall något skulle gå snett*/
+        padding-top: 0.75rem; /*Här bestäms utrymmet ovanför logon*/
+    }
+    
+    .dropdown{
+        overflow: hidden;
+    }
+    
+    .dropdown .dropbtn {
+        font-size: 10vw;
+        border: none; /*Ramen runt knappen tas bort*/
+        background: none; /*Knappens bakgrund tas bort*/
+        outline: none; /*knappens outline tas bort*/
+        color: black;
+        padding-top: 2.2rem;
+    }
+    
+    nav a:hover, .dropdown:hover .dropbtn {
+        color: gold; /*Här färgas länkarna guldiga om man hovrar med musen ovanför dem*/
+    }
+    
+    .dropdown-content {
+        display: none; /*Innehållet göms*/
+        position: absolute; /*Innehållet positioneras i relation till sin första position*/
+        min-width: 10em; /*Den minsta bredden sätts till 10em*/
+        box-shadow: 0 0.5em 1em 0 rgba(0,0,0,0.2); /*Här får innehållets ruta lite skugga*/
+        z-index: 1; /*Här anges att innehållet ska ligga överst*/
+    }
+    
+    .dropdown-content a {
+        float: none; /*Här anges att innehållets länkar ska visas just där de befinner sig i texten*/
+        color: black;
+        padding: 0.2em 1em;
+        text-decoration: none;
+        display: block; /*Här anges att länkarna ska visas under varandra*/
+        text-align: left; /*texten vänsterjusteras*/
+        font-family: Quicksand, sans-serif;
+        font-size: 3vw;
+        font-weight: bold; /*Länkarna får fet stil*/
+        background-color: ghostwhite; /*Länkarna får en ghostwhite bakgrund för att de ska synas bättre*/
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block; /*Om man hovrar med musen öven dropdown-knabben syns innehållet i dropdown-menyn*/
+    }
+
+    #section_about {
+        display: block;
+        margin: 2em; /*Här sätts marginalen till 2em runt hela sektionen*/
+    }
+
+    #section_about img { /*styling för bilden av Freya*/ 
+        width: 100%;
+        height: auto;
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column; /*Här anges det att bilderna i galleriet ska visas under varandra*/
+    }
+
+    .gallery img {
+        max-width: 100%; /*Här anges det att bildena ska ha en max-bredd till 100%*/
+        height: auto !important; /*Här sätts höjden till auto för att bilden ska visas korrekt. 
+        !important används för att höjden definitivt ska bli korrekt. Har haft problem med Safari om jag inte använde !important*/
+    }
+
+    form {
+        justify-content: center; /*Formuläret centreras*/
+        width: 80%; /*Bredden sätts till 80% av formulärets bredd*/
+        margin: 0 1.5em;
+    }
+}
+
+@media only screen and (min-width: 600px) { 
+    /*Här kommer styling som gäller skärmar med en minsta bredd av 600 pixlar (typ iPad). Mycket av stylingen 
+    är lik den för mindre skärmar. Dock anges det att bildgallerierna ska visa bilderna två och två 
+    bredvid varandra istället för en och en ovanför varandra*/
+    
+    nav {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        width: 100%;
+        height: 12em;
+        background-repeat: no-repeat;
+    }
+    
+    .nav_desktop {
+        display: none;
+    }
+
+    #small_index {
+        background-image: url("img/backgrounds/bride-1867228_1920.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 20em;
+    }
+    
+    #small_about {
+        background-image: url("img/backgrounds/J76A0617.jpg");
+        background-position: bottom;
+        background-size: 100%;
+    }
+    
+    #small_wedding {
+        background-image: url("img/backgrounds/bride-1867228_1920.jpg");
+        background-size: 100%;
+        background-position: center 25%;
+    }
+    
+    #small_portrait {
+        background-image: url("img/backgrounds/8X2A2123_websize.jpg");
+        background-size: 100%;
+        background-position: center 25%;
+    }
+    
+    #small_family {
+        background-image: url("img/backgrounds/aron-920236_1280.jpg");
+        background-size: 100%;
+        background-position: center 25%;
+    }
+    
+    #small_business {
+        background-image: url("img/backgrounds/8X2A0775.jpg");
+        background-size: 100%;
+        background-position: center 70%
+    }
+    
+    #small_contact {
+        background-image: url("img/backgrounds/8X2A2100_websize.jpg");
+        background-position: top;
+    }
+    
+    .small_logo {
+        font-size: 15vw;
+        font-weight: normal;
+        color: black;
+        text-align: center;
+        padding-right: 0.5em;
+        text-decoration: none;
+        font-family: Kristi, sans-serif;
+        padding-top: 0.75rem;
+    }
+    
+    .dropdown{
+        overflow: hidden;
+    }
+    
+    .dropdown .dropbtn {
+        font-size: 10vw;
+        border: none;
+        background: none;
+        outline: none;
+        color: black;
+        padding-top: 2.2rem;
+    }
+    
+    nav a:hover, .dropdown:hover .dropbtn {
+        color: gold;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 10em;
+        box-shadow: 0 0.5em 1em 0 rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 0.2em 1em;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        font-family: Quicksand, sans-serif;
+        font-size: 3vw;
+        font-weight: bold;
+        background-color: ghostwhite;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    #section_about {
+        display: flex;
+        margin: 2em;
+    }
+
+    #section_about img {
+        align-self: flex-start;
+        width: 40%;
+        height: auto;
+        padding-right: 4em;
+        margin-left: 2em;
+    }
+
+
+    .gallery {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+    }
+
+    .gallery img {
+        max-width: 50%;
+        height: auto;
+    }
+
+    form {
+        justify-content: center;
+        width: 80%;
+        margin: 0 1.5em;
+    }
+
+    section p {
+        max-width: 80%;
+    }
+}
+
+@media only screen and (min-width: 992px) { 
+    /*Här kommer styling för stora skärmar (typ datorer)*/
+
+    .nav_phones {display: none;} /*Här döljs menyn för små skärmar*/
+
+    nav {
+        display: flex;
+        height: 20em;
+        justify-content: center;
+    }
+
+    .nav_desktop { /*Här visas menyn för stora skärmar*/
+        display: flex;
+    }
+
+    #nav_index {
+        display: flex;
+        background-image: url("img/backgrounds/bride-1867228_1920.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 40em;
+    }
+
+    #nav_about {
+        background-image: url("img/backgrounds/J76A0617.jpg");
+        background-size: 100%;
+        background-position: bottom;
+    }
+
+    #nav_wedding {
+        background-image: url("img/backgrounds/bride-1867228_1920.jpg");
+        background-size: 100%;
+        background-position: center 25%;
+    }
+
+    #nav_portrait {
+        background-image: url("img/backgrounds/8X2A2123_websize.jpg");
+        background-size: 100%;
+        background-position: center 25%;
+    }
+
+    #nav_family {
+        background-image: url("img/backgrounds/aron-920236_1280.jpg");
+        background-size: 100%;
+        background-position: center 25%;
+    }
+
+    #nav_business {
+        background-image: url("img/backgrounds/8X2A0775.jpg");
+        background-size: 100%;
+        background-position: center 80%;
+    }
+
+    #nav_contact {
+        background-image: url("img/backgrounds/8X2A2100_websize.jpg");
+        background-size: 100%;
+        background-position: top;
+    }
+
+    nav ul { /*Här kommer styling för navigeringens oordnade lista*/
+        display: flex;
+        list-style-type: none;
+        margin-top: 5em;
+    }
+
+    nav ul li { /*Här kommer styling för varje list-item i navigeringens oordnade lista*/
+        font-family: Quicksand, sans-serif;
+        padding: 0 1em;
+        text-align: center;
+    }
+
+    nav ul li a { /*Här kommer styling för länkarna i navigeringens oordnade lista*/
+        text-decoration: none;
+        font-size: 1.3vw;
+        font-weight: bold;
+    }
+
+    nav ul li a:link {
+        color: black; /*Om en länk aldrig är tryckt på får den färgen svart*/
+    }
+
+    nav ul li a:visited { /*Om en länk är tryckt på får den färgen svart*/
+        color: black;
+    }
+
+    nav ul li a:hover {
+        color: gold; /*Om man hovrar över en länk får den färgen guld*/
+    }
+
+    .logo {
+        font-family: Kristi, sans-serif;
+        font-size: 7vw;
+        font-weight: normal;
+        position: relative; /*Här sätts positionen till relative för att kunna ändra logons placering*/
+        top: -0.5em; /*Positionen ändras relativt till toppen*/
+    }
+
+    #section_about {
+        display: flex;
+        margin: 2em;
+    }
+
+    #section_about img {
+        align-self: flex-start;
+        width: 30%;
+        height: auto;
+        padding-right: 4em;
+        margin-left: 2em;
+    }
+
+    .gallery {
+        justify-content: center;
+        flex-flow: row wrap;
+        align-items: flex-start;
+    }
+
+    .gallery img {
+        width: 25%;
+        height: auto;
+    }
+
+    form {
+        justify-content: space-around;
+        width: 40%;
+        margin: 0 1.5em;
+    }
+
+    section p {
+        max-width: 70%;
+    }
+}
+
+article { /*styling för alla artiklar*/
+    padding: 1em 1em;
+}
+
+h2, h3 { /*Styling för rubriker*/
+    font-family: Quicksand, sans-serif;
+    margin-bottom: -0.1em;
+    font-size: 1.2em;
+    padding-left: 0.5em;
+}
+
+p { /*Styling för paragrafer*/
+    font-family: Libre Caslon Text, serif;
+    line-height: 1.5em;
+    font-size: 0.9em;
+    padding: 0.5em;
+}
+
+section { /*Styling som gäller för alla sektioner*/
+    display: flex;
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+
+#section_contact { /*Styling som bara gäller sektionen på kontaktsidan*/
+    display: flex;
+    flex-direction: column;
+}
+
+form label { /*Styling för alla labels i formuläret*/
+    font-family: Quicksand, sans-serif;
+    font-size: 0.7em;
+}
+
+form input[type="text"] { /*Här är styling för formulärets input-element av typen text*/
+    width: 100%;
+    margin-bottom: 1.2em;
+}
+
+form textarea { /*Styling för meddelanderutan*/
+    width: 100%;
+    margin-bottom: 1.2em;
+}
+
+form input[type="submit"] { /*Styling för formulärets knapp*/
+    background-color: dimgray;
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.2em 1em;
+}
+
+footer { /*Styling för footern*/
+    font-family: Libre Caslon Text, serif;
+    font-size: 0.8em;
+    display: block;
+    text-align: center;
+    padding: 1em;
+    color: #333;
+}
+
+footer a { /*Styling för länken i footern*/
+    text-decoration: none;
+    color: black;
+    font-family: Quicksand, sans-serif;
+}
+
+footer a:link { 
+    color: black; /*Om länken inte är besökt är den svart*/
+}
+
+footer a:visited {
+    color: black; /*Om länken är besökt ska den ändå vara svart*/
+}
+
+footer a:hover {
+    color: gold; /*Om man hovrar över länken ska den bli guldfärgad*/
+}

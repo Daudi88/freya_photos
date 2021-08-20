@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <title>Kontakt</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    </head>
+    <body id="top">
+        <nav class="nav_phones" id="small_contact">
+            <a class="small_logo" href="index.html">Freya Photos</a>
+            <div class="dropdown">
+                <button class="dropbtn">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="about.html">OM FREYA</a>
+                  <a href="wedding.html">BRÖLLOP</a>
+                  <a href="portrait.html">PORTRÄTT</a>
+                  <a href="family.html">FAMILJ</a>
+                  <a href="business.html">FÖRETAG</a>
+                  <a href="contact.html">KONTAKT</a>
+                </div>
+              </div>
+        </nav>
+        <nav class="nav_desktop" id="nav_contact">
+            <ul>
+                <li><a href="about.html">OM FREYA</a></li>
+                <li><a href="wedding.html">BRÖLLOP</a></li>
+                <li><a href="portrait.html">PORTRÄTT</a></li>
+                <li><a class="logo" href="index.html">Freya Photos</a></li>
+                <li><a href="family.html">FAMILJ</a></li>
+                <li><a href="business.html">FÖRETAG</a></li>
+                <li><a href="contact.html">KONTAKT</a></li>
+            </ul>
+        </nav>
+        <section id="section_contact">
+            <article>
+                <h2>VARMT VÄLKOMMEN ATT KONTAKTA MIG</h2>
+                <p>Fyll i formuläret och skicka det till mig så återkommer jag till dig inom 36 timmar.</p>
+            </article>
+            <form> <!--Här är ett uppmärkt kontaktformulär. Det finns en label för varje input. 
+                Formuläret har ingen action vilket betyder att det som skrivs in skickas ingenstans i nuläget-->
+                <label for="name">
+                    DITT NAMN <!--Detta står ovanför inputrutan-->
+                </label>
+                <br>
+                <input type="text" name="name" id="name"> <!--Detta är en textruta-->
+                <br>
+                <label for="email">
+                    E-POST
+                </label>
+                <br>
+                <input type="text" name="email" id="email">
+                <br>
+                <label for="message">
+                    DITT MEDDELANDE
+                </label>
+                <br> <!--Här nedanför kommer en större textruta-->
+                <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                <br>
+                <input type="submit" value="SKICKA"> <!--Här är en button för att skicka in formuläret-->
+            </form>
+        </section>
+        <footer>
+            <a href="#top">TILLBAKA TILL TOPPEN</a>
+            <p>Copyright 2020 Freya Photos</p>
+        </footer>
+    </body>
+</html>
